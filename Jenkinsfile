@@ -6,7 +6,7 @@ pipeline {
         sh 'curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl'
         sh '''chmod +x ./kubectl
 '''
-        sh '''kubectl version --short --client
+        sh '''$KUBECTL version --short --client
 
 '''
         sh '$KUBECTL version --client'
@@ -57,6 +57,6 @@ pipeline {
     CREDITCARD_SERVICE_IMAGE = 'ramkumarv2-casestudy-creditcard-service'
     IDENTITY_VERIFICATION_SERVICE_IMAGE = 'ramkumarv2-casestudy-identity-verification-service'
     K8S_NS = 'eks-training'
-    KUBECTL = '/home/ec2-user/bin/kubectl'
+    KUBECTL = './kubectl'
   }
 }
