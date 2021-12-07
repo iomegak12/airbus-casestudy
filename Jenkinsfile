@@ -130,6 +130,6 @@ pipeline {
     CREDITCARD_SERVICE_IMAGE = 'ramkumarv2-casestudy-creditcard-service'
     IDENTITY_VERIFICATION_SERVICE_IMAGE = 'ramkumarv2-casestudy-identity-verification-service'
     K8S_NS = 'eks-training'
-    KUBECTL = '~/bin/kubectl'
+    KUBECTL = '/home/ec2-user/bin/kubectl'
   }
 }
