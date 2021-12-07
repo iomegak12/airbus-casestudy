@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Prepare K8S NS') {
       steps {
+        sh '$KUBECTL version --client'
         sh '$KUBECTL create namespace $K8S_NS'
       }
     }
