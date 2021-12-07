@@ -1,9 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('Prepare K8S NS') {
+    stage('Prepare K8S CLI') {
       steps {
-        sh 'sudo $KUBECTL version --client'
+        sh 'curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl'
+        sh '''chmod +x ./kubectl
+'''
+        sh '''kubectl version --short --client
+
+'''
+        sh '$KUBECTL version --client'
         sh '$KUBECTL create namespace $K8S_NS'
       }
     }
